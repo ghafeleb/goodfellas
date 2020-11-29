@@ -1,5 +1,5 @@
 ## Bias detection using Deep Supervised Contrastive Learning (Goodfellas)
-
+#### [[Project Website]](https://ghafeleb.github.io/goodfellas/)
 
 
 [Sina Aghaei](), [Zahra Abrishami](zabrisha@usc.edu), 
