@@ -18,8 +18,8 @@ In this work we want to understand how different are news articles on the same s
 A proxy for this goal could be a classifier which tries to classify news articles depending on their political party. Existing approaches such as~\cite{mokhberian2020moral} tackle this problem using a classifier on the space of the words embedding. The problem with this approach is that it is not end to end, i.e., the embedding are not trained with the purpose of getting a good classification result. As we can see in figure~\ref{fig:bias-embedding}(right), with general purpose word embedding models such as BERT~\cite{mikolov2013distributed}, classifying embedded articles might not be straightforward. Having a new representation such as the one shown in figure~\ref{fig:bias-embedding}(left) where it maximizes the distance between embedding from different classes could make the classification task much easier, as in the latent space, the bias is exposed.
 
 <p float="left">
-  <img src="/docs/resources/embedding.PNG" width="100" />
-  <img src="/docs/resources/embedding.PNG" width="100" /> 
+  <img src="/docs/resources/embedding.PNG" width="250" />
+  <img src="/docs/resources/embedding.PNG" width="250" /> 
 </p>
 
 
