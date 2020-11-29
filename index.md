@@ -1,8 +1,12 @@
+## Bias detection using Deep Supervised Contrastive Learning (Goodfellas)
+### Sina Aghaei
+### Zahra Abrishami
+### Ali Ghafelehbash
+### Bahareh Harandizadeh
+### Negar Mokhberian
 
-
-
-
-
+## Abstract
+In this paper, we propose an end-to-end model to detect ideological bias in news articles. We propose a deep supervised contrastive learning model to learn new representations for text with the goal of separating the embeddings from different classes to expose the bias in the textual data and exploit this bias to identify political orientation of different news articles.
 
 
 
