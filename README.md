@@ -19,19 +19,19 @@ A proxy for this goal could be a classifier which tries to classify news article
 
 
 <a href="https://ghafeleb.github.io/goodfellas/">
-<p align="center">
-<img src="~/docs/resources/bias.PNG" width="200">
+<p align="left">
+<img src="docs/resources/bias.PNG" width="200">
 </p>
 </img></a>
 
 <a href="https://github.com/ghafeleb/goodfellas">
 <p align="center">
-<img src="~/docs/resources/bias.PNG" width="200">
+<img src="docs/resources/bias.PNG" width="200">
 </p>
 </img></a>
 
 <a href="https://ghafeleb.github.io/goodfellas/">
-<p align="center">
+<p align="right">
 <img src="docs/resources/embedding.PNG" width="200">
 </p>
 </img></a>
