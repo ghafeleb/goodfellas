@@ -19,7 +19,7 @@ A proxy for this goal could be a classifier which tries to classify news article
 
 <div class="row">
   <div class="column">
-    <img src="docs/resources/embedding.PNG" style="width:30%">
+    <img src="docs/resources/embedding.PNG" style="width:100px">
   </div>
   <div class="column">
     <img src="docs/resources/embedding.PNG" style="width:30%">
