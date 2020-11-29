@@ -20,25 +20,24 @@ A proxy for this goal could be a classifier which tries to classify news article
 <div align="left">
 <a href="https://ghafeleb.github.io/goodfellas/">
 <p >
-<img src="docs/resources/bias.PNG" width="200">
+<img src="docs/resources/bias.PNG" width="200"></img>
 </p>
-</img></a>
+</a>
 </div>
 
 <div align="center">
 <a href="https://github.com/ghafeleb/goodfellas">
 <p >
-<img src="docs/resources/bias.PNG" width="200">
+<img src="docs/resources/bias.PNG" width="200"></img>
 </p>
-</img></a>
+</a>
 </div>
 
 <div align="right">
 <a href="https://ghafeleb.github.io/goodfellas/">
 <p >
-<img src="docs/resources/embedding.PNG" width="200">
-</p>
-</img></a>
+<img src="docs/resources/embedding.PNG" width="200"></img>
+</p></a>
 </div>
 
 
