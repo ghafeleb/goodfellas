@@ -30,7 +30,7 @@ A proxy for this goal could be a classifier which tries to classify news article
 
 </p>
 <br>
-<div style="text-align:center">Fig. 2: The minimum dominating set of a graph<\div>
+<div style="text-align:center">Fig. 2: The minimum dominating set of a graph</div>
 <!-- *Fig. 2: The minimum dominating set of a graph* -->
 
 
