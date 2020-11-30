@@ -128,7 +128,7 @@ It seems that the first topic is about ''covid19'', the second topic is about ''
 At the end we are left with 7226 articles from Breitbart (class $1$) and 6300 articles from Huffington Post (class $0$).
 
 ## Experiments
-In this section, as one of our baseline methods we train the \texttt{DeCLUTR} model introduced by~\cite{giorgi2020declutr} on our covid19 data explained in \S\ref{sec:data}, the overview of their model is given in figure 3. 
+In this section, as one of our baseline methods we train the \texttt{DeCLUTR} model introduced by[[3]](#3) on our covid19 data explained in \S\ref{sec:data}, the overview of their model is given in figure 3. 
 
 
 ## References
