@@ -22,8 +22,9 @@ A proxy for this goal could be a classifier which tries to classify news article
 
 
 <p float="left">
+  
+  <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/embedding.PNG" width="300" /> 
   <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/bias.PNG" width="300" />
-  <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/embedder.PNG" width="300" /> 
 <!--   <img src="/docs/resources/embedding.PNG" width="300" /> -->
 </p>
 
