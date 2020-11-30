@@ -22,15 +22,9 @@ A proxy for this goal could be a classifier which tries to classify news article
 
 
 <p float="center">
-  
   <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/embedding.PNG" width="450" /> 
   <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/bias.PNG" width="450" />
-  <figcaption align="center">Fig. 2: The minimum dominating set of a graph</figcaption>
-  <!--   <img src="/docs/resources/embedding.PNG" width="300" /> -->
-<!--   <figcaption>{{An ideal latent space (left) where the articles from opposite classes are far from each other which helps to expose the political bias (right) and improves the performance of the classification task.}}</figcaption> -->
-
 </p>
-
 <p align="center">
 Fig. 2: The minimum dominating set of a graph
 </p>
