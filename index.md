@@ -52,13 +52,13 @@ We take the average of the positive spans per anchor as follows
     $$e^k_{i+AN} = \frac{1}{P}\sum_{p=1}^{P}g(f(s^k_{i+pAN}))$$
     
 <p align="center">
-  <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/AvgPosSpan.PNG" width="450" /> 
+  <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/AvgPosSpan.PNG" width="300" /> 
 </p>
 
 Now we have $2(AN)$ datapoints per party and in total $4(AN)$ datapoints per batch. \zahra{How did we get these numbers?} We define our supervised contrastive loss function as follows
 
 <p align="center">
-  <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/Loss1.PNG" width="450" /> 
+  <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/Loss1.PNG" width="300" /> 
 </p>
 <br>
 <p align="center">
@@ -76,25 +76,10 @@ where
 \zahra{What is m? Does it refer to all documents from the different parties?}
 
 <p align="center">
-  <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/model.PNG" width="450" /> 
+  <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/model.PNG" width="900" /> 
 </p>
 <p align="center">
 <b>Figure 2:</b> Overview of the supervised contrastive objective. In this figure, we show a simplified example where in each batch we sample 1 document $d^k$ per class $k$ and we sample 1 anchor span $e^k_i$ per document and 1 positive span $e^k_j$ per anchor. All the spans are fed through the same encoder $f$ and pooler $g$ to produce the corresponding embedding vectors $e^k_i$ and $e^k_j$. The model is trained to minimize the distance between each anchor $e^k_i$ and its corresponding positive $e^k_j$ and maximize the distance between anchor $e^k_i$ and all other spans from class $1-k$. \ali{I think we shouk}
-</p>
-<p align="center">
-  <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/data_head.png" width="900" /> 
-</p align="center">
-<p  align="center">
-<b>Figure 3:</b> Overview of the dataset.
-</p>
-
-
-<p align="center">
-  <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/length_distribution.png" width="450" /> 
-</p>
-<p  align="center">
-<b>Figure 3:</b> Overview of the dataset.
-</p>
 
 
 ## Data
@@ -129,6 +114,17 @@ At the end we are left with 7226 articles from Breitbart (class $1$) and 6300 ar
 
 ## Experiments
 In this section, as one of our baseline methods we train the \texttt{DeCLUTR} model introduced by[[3]](#3) on our covid19 data explained in \S\ref{sec:data}, the overview of their model is given in figure 3. 
+
+<p align="center">
+  <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/DeCUTR.PNG" width="900" /> 
+</p align="center">
+<p  align="center">
+<b>Figure 4:</b> Overview of the self-supervised contrastive objective. For each document d in a minibatch of size N, we sample A anchor spans per document and P positive spans per anchor. For simplicity, we illustrate the case where $A = P = 1$ and denote the anchor-positive span pair as $s_i$, $s_j$. Both spans are fed through the same encoder $f$ and pooler $g$ to produce the corresponding embeddings $e_i = g(f(s_i))$, $e_j = g(f(s_j))$. The encoder and pooler are trained to minimize the distance between embeddings via a contrastive prediction task (where the other embeddings in a minibatch are treated as negatives, omitted here for simplicity).
+</p>
+
+In the implementation of \texttt{DeCLUTR}, in the process of sampling the anchor-positive spans, they randomly choose the length of each span, with the minimum length $l_{\min}=32$ and maximum length $l_{\max}=512$. Furthermore they exclude all articles with less than ($\text{num-anchor}*l_{\max}*2$) words, where num-anchor is the number of anchors sampled per article (For details of the sampling process please refer to the main text of~\cite{giorgi2020declutr}). According to the distriubtion of length of the articles in our dataset given in figure~\ref{fig:length_dist}, in order to be able to use most of our data, we set the minimum length to $l_{\min}=20$ and maximum length to $l_{\max}=100$ and we sample one anchor per document, i.e., $\text{num-anchor}=1$. Having all this, articles with less than $200$ words (1345 of them) would be put aside which we use them as our test set and use the remaining articles (12181 of them) as our training set.
+We train the \texttt{DeCLUTR} model with the unsupervised contrastive loss on the training data. We then get the embedding of the test articles under the trained model. The visualization of the embeddings is given in figure~\ref{fig:pca} (left). The embedding space is $768$ dimensional. We applied Principal component analysis (PCA) to get the visualization. As we can see the embeddings are not well-separated from each other.
+As our next step, we fit a binary classification model on these embeddings to see how well it can separate the articles from opposite classes. To do so, we fit a logistic regression model on $75\%$ of the test set. The accuracy of the trained binary classifier on the remaining $25\%$ of the data is $85.45\%$.  
 
 
 ## References
