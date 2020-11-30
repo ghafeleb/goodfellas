@@ -51,12 +51,48 @@ Similar to~\cite{giorgi2020declutr}, a pooler $g(.)$, maps the encoded anchor sp
 We take the average of the positive spans per anchor as follows
     $$e^k_{i+AN} = \frac{1}{P}\sum_{p=1}^{P}g(f(s^k_{i+pAN}))$$
     
+<p float="center">
+  <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/AvgPosSpan.PNG" width="450" /> 
+</p>
+
+Now we have $2(AN)$ datapoints per party and in total $4(AN)$ datapoints per batch. \zahra{How did we get these numbers?} We define our supervised contrastive loss function as follows
+
+<p float="center">
+  <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/Loss1.PNG" width="450" /> 
+</p>
+<br>
+<p float="center">
+  <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/Loss2.PNG" width="450" /> 
+</p>
+
+where
+
+<p float="center">
+  <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/Loss3.PNG" width="450" /> 
+</p>
 
 
+\ali{What is "sim" in the formulation?, what is $\tau$?} Loss function~\eqref{eq:loss_k} enforces anchor $e^k_i$ to be as closes as possible to its corresponding positive span $e^k_{i+AN}$ (which is referred to as easy positive) and at the same time to be as far as possible from all spans $e^{1-k}_m$ from the opposite party, i.e., for any given anchor from class $k$, the corresponding set of negative spans only include the spans from opposite class $1-k$ (which are referred to as easy negative). Figure~\ref{fig:model} visualizes a simplified overview of our model. \ali{Are we using hard positive or hard negative in our project? If no, I think we should remove the term "easy".}
+\zahra{What is m? Does it refer to all documents from the different parties?}
+
+<p float="center">
+  <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/model.PNG" width="450" /> 
+</p>
+<p align="center">
+<b>Figure 2:</b> Overview of the supervised contrastive objective. In this figure, we show a simplified example where in each batch we sample 1 document $d^k$ per class $k$ and we sample 1 anchor span $e^k_i$ per document and 1 positive span $e^k_j$ per anchor. All the spans are fed through the same encoder $f$ and pooler $g$ to produce the corresponding embedding vectors $e^k_i$ and $e^k_j$. The model is trained to minimize the distance between each anchor $e^k_i$ and its corresponding positive $e^k_j$ and maximize the distance between anchor $e^k_i$ and all other spans from class $1-k$. \ali{I think we shouk}
+</p>
+<p float="center">
+  <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/data_head.PNG" width="450" /> 
+</p>
+<b>Figure 3:</b> Overview of the dataset.
+</p>
 
 
-Ali Ghafelebashi[[1]](#1).
-Zahra Abrishami[[2]](#2).
+<p float="center">
+  <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/length_distribution.PNG" width="450" /> 
+</p>
+<b>Figure 3:</b> Overview of the dataset.
+</p>
 
 ## References
 <a id="1">[1]</a> 
