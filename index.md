@@ -14,11 +14,11 @@ In this paper, we propose an end-to-end model to detect ideological bias in news
 
 ## Introduction
 
-In any nation, media can be a dividing issue as it might reflect topics differently based on the political views or ideological lines. Understanding this implicit bias is becoming more and more critical, specifically by growing numbers of social media and news agencies platforms. Recently the number of research in this domain also is increasing, from detection and mitigation of gender bias~\cite{dixon2018measuring},to polarization detection in political views~\cite{2020SciA6C2717G} also ideological bias of News~\cite{mokhberian2020moral}. We think the analysis of bias in the news could be very helpful for the readers as make them more responsible about what they hear or read. 
+In any nation, media can be a dividing issue as it might reflect topics differently based on the political views or ideological lines. Understanding this implicit bias is becoming more and more critical, specifically by growing numbers of social media and news agencies platforms. Recently the number of research in this domain also is increasing, from detection and mitigation of gender bias[[1]](#1),to polarization detection in political views[[4]](#4) also ideological bias of News[[6]](#6). We think the analysis of bias in the news could be very helpful for the readers as make them more responsible about what they hear or read. 
 
 In this work we want to understand how different are news articles on the same subject but from different political parties (left and right) from each other. We want to detect the potential political bias within news articles. We, as human, can easily identify the different political orientation of articles from opposite parties. For example, how different conservative news agencies such as ''Fox News'' approach a subject like Covid-19 compares to a liberal news agency such as ''CNN''. The question is that can machines detect this political bias as well?
 %
-A proxy for this goal could be a classifier which tries to classify news articles depending on their political party. Existing approaches such as~\cite{mokhberian2020moral} tackle this problem using a classifier on the space of the words embedding. The problem with this approach is that it is not end to end, i.e., the embedding are not trained with the purpose of getting a good classification result. As we can see in figure~\ref{fig:bias-embedding}(right), with general purpose word embedding models such as BERT~\cite{mikolov2013distributed}, classifying embedded articles might not be straightforward. Having a new representation such as the one shown in figure~\ref{fig:bias-embedding}(left) where it maximizes the distance between embedding from different classes could make the classification task much easier, as in the latent space, the bias is exposed.
+A proxy for this goal could be a classifier which tries to classify news articles depending on their political party. Existing approaches such as[[6]](#6)tackle this problem using a classifier on the space of the words embedding. The problem with this approach is that it is not end to end, i.e., the embedding are not trained with the purpose of getting a good classification result. As we can see in figure~\ref{fig:bias-embedding}(right), with general purpose word embedding models such as BERT[[5]](#5), classifying embedded articles might not be straightforward. Having a new representation such as the one shown in figure~\ref{fig:bias-embedding}(left) where it maximizes the distance between embedding from different classes could make the classification task much easier, as in the latent space, the bias is exposed.
 
 <p align="left">
   <img  width="250" src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/bias.PNG"> 
@@ -64,14 +64,16 @@ Zahra Abrishami[[2]](#2).
 
 ## References
 <a id="1">[1]</a> 
-Dijkstra, E. W. (1968). 
-Go to statement considered harmful. 
-Communications of the ACM, 11(3), 147-148.
-
-<a id="2">[2]</a> 
 Lucas Dixon, John Li, Jeffrey Sorensen, Nithum Thain, and Lucy Vasserman. Measur-ing and mitigating unintended bias in text classification.  InProceedings of the 2018AAAI/ACM Conference on AI, Ethics, and Society, pages 67–73, 2018
 
+<a id="4">[4]</a> 
+Jon Green, Jared Edgerton, Daniel Naftel, Kelsey Shoub, and Skyler J. Cranmer. Elusiveconsensus:  Polarization in elite communication on the COVID-19 pandemic.ScienceAdvances, 6(28):eabc2717, July 2020
 
+<a id="6">[6]</a> 
+Negar Mokhberian, Andrés Abeliuk, Patrick Cummings, and Kristina Lerman. Moralframing and ideological bias of news.arXiv preprint arXiv:2009.12979, 2020.
+
+<a id="5">[5]</a> 
+Tomas Mikolov, Ilya Sutskever, Kai Chen, Greg S Corrado, and Jeff Dean. Distributedrepresentations of words and phrases and their compositionality. InAdvances in neuralinformation processing systems, pages 3111–3119, 2013
 
 
 ## Bias detection using Deep Supervised Contrastive Learning (Goodfellas)
