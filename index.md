@@ -60,6 +60,7 @@ We take the average of the positive spans per anchor as follows
 
 
 Ali Ghafelebashi[[1]](#1).
+Zahra Abrishami[[2]](#2).
 
 ## References
 <a id="1">[1]</a> 
@@ -67,7 +68,8 @@ Dijkstra, E. W. (1968).
 Go to statement considered harmful. 
 Communications of the ACM, 11(3), 147-148.
 
-
+<a id="2">[2]</a> 
+Lucas Dixon, John Li, Jeffrey Sorensen, Nithum Thain, and Lucy Vasserman. Measur-ing and mitigating unintended bias in text classification.  InProceedings of the 2018AAAI/ACM Conference on AI, Ethics, and Society, pages 67–73, 2018
 
 
 
