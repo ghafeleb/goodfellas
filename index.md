@@ -96,6 +96,36 @@ where
 <b>Figure 3:</b> Overview of the dataset.
 </p>
 
+
+## Data
+For our experiments we use AYLIEN’s Coronavirus news dataset\footnote{\url{https://aylien.com/blog/coronavirus-news-dashboard}} (Global COVID related news since Jan 2020). This dataset contains numerous news articles from different news sources with different political orientations. For simplicity we only focus on news articles from two news sources Huffington Post, which is considered as liberal (class $0$), and Breitbart which is considered as conservative (class $1$).
+
+In the figure~\ref{fig:data_head} we show the first few lines of the dataset. We assign Huffington's articles class $0$ and Breitbart's articles class $1$. Another important observation from the data is the distribution of the length (number of words) of the articles which is shown in figure~\ref{fig:data_head}. This is important to the step where we sample the anchor-positive pairs from the data. 
+
+<p align="center">
+  <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/data_head.png" width="900" /> 
+</p align="center">
+<p  align="center">
+<b>Figure 3:</b> Overview of the dataset.
+</p>
+
+<p align="center">
+  <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/length_distribution.png" width="450" /> 
+</p>
+<p  align="center">
+<b>Figure 3:</b> Overview of the dataset.
+</p>
+
+Another step that we do is topic modeling to make sure all the articles are about the same subject ''covid19''. We use Latent Dirichlet Allocation (LDA) for this step. The topics we found are as follows:
+
+- huffpost people new time home like 19 covid pandemic health help year just
+- trump president donald people house states white pandemic news state virus americans health going huffpost
+- minister china chinese cases italy wuhan government confirmed border reported countries virus prime authorities deaths
+- hanks rita kimmel jimmy wilson cordero aniston kloots fallon elvis song tom actor conan corden
+- newstex al views content et https advice www accuracy commentary authoritative guarantees distributors huffington conferring
+
+
+
 ## References
 <a id="1">[1]</a> 
 Lucas Dixon, John Li, Jeffrey Sorensen, Nithum Thain, and Lucy Vasserman. Measuring and mitigating unintended bias in text classification. In proceedings of the 2018AAAI/ACM Conference on AI, Ethics, and Society, pages 67–73, 2018
