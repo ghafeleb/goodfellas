@@ -19,7 +19,7 @@ A proxy for this goal could be a classifier which tries to classify news article
 
 <p align="left">
   <img  width="250" src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/bias.PNG"> 
-  <img align="center" width="250" src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/bias.PNG"> 
+<!--   <img align="center" width="250" src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/bias.PNG">  -->
   <img align="right" width="250" src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/bias.PNG">
 </p>
 <!-- <img align="left" width="100" src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/bias.PNG"> -->
