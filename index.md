@@ -145,7 +145,7 @@ So far we have implemented the baseline methods \texttt{DeCLUTR} and \texttt{Fin
   <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/FineTunedBERT.PNG" width="900" /> 
 </p>
 <p  align="center">
-<b>Figure 4:</b> The visualization of the embeddings from \texttt{DeCLUTR} (left) and \texttt{FineBERT} (right) of test data in two dimension.
+<b>Figure 7</b>
 </p>
 
 ## References
@@ -164,7 +164,7 @@ Negar Mokhberian, Andrés Abeliuk, Patrick Cummings, and Kristina Lerman. Moralf
 <a id="5">[5]</a> 
 Tomas Mikolov, Ilya Sutskever, Kai Chen, Greg S Corrado, and Jeff Dean. Distributed representations of words and phrases and their compositionality. In advances in neural information processing systems, pages 3111–3119, 2013.
 
-
+<!-- 
 ## Bias detection using Deep Supervised Contrastive Learning (Goodfellas)
 
 You can use the [editor on GitHub](https://github.com/ghafeleb/goodfellas.github.io/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
@@ -202,3 +202,4 @@ Your Pages site will use the layout and styles from the Jekyll theme you have se
 ### Support or Contact
 
 Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+ -->
