@@ -98,7 +98,7 @@ where
 
 
 ## Data
-For our experiments we use AYLIEN’s Coronavirus news dataset\footnote{\url{https://aylien.com/blog/coronavirus-news-dashboard}} (Global COVID related news since Jan 2020). This dataset contains numerous news articles from different news sources with different political orientations. For simplicity we only focus on news articles from two news sources Huffington Post, which is considered as liberal (class $0$), and Breitbart which is considered as conservative (class $1$).
+For our experiments we use [AYLIEN’s Coronavirus news dataset](https://aylien.com/blog/coronavirus-news-dashboard) (Global COVID related news since Jan 2020). This dataset contains numerous news articles from different news sources with different political orientations. For simplicity we only focus on news articles from two news sources Huffington Post, which is considered as liberal (class $0$), and Breitbart which is considered as conservative (class $1$).
 
 In the figure~\ref{fig:data_head} we show the first few lines of the dataset. We assign Huffington's articles class $0$ and Breitbart's articles class $1$. Another important observation from the data is the distribution of the length (number of words) of the articles which is shown in figure~\ref{fig:data_head}. This is important to the step where we sample the anchor-positive pairs from the data. 
 
@@ -124,22 +124,28 @@ Another step that we do is topic modeling to make sure all the articles are abou
 - Hanks rita kimmel jimmy wilson cordero aniston kloots fallon elvis song tom actor conan corden
 - Newstex al views content et https advice www accuracy commentary authoritative guarantees distributors huffington conferring
 
-[AYLIEN’s Coronavirus news dataset](https://aylien.com/blog/coronavirus-news-dashboard)
+It seems that the first topic is about ''covid19'', the second topic is about ''white house announcements'', the third one is about ''global news'', the fourth one is about ''enterntainment'' and the last one is not related to our work. To only keep covid19 related articles we kepth those having at least one of the following keywords, ''covid,covid19,pandemic,vaccine,virus,corona,face covering''.
+At the end we are left with 7226 articles from Breitbart (class $1$) and 6300 articles from Huffington Post (class $0$).
 
+## Experiments
+In this section, as one of our baseline methods we train the \texttt{DeCLUTR} model introduced by~\cite{giorgi2020declutr} on our covid19 data explained in \S\ref{sec:data}, the overview of their model is given in figure 3. 
 
 
 ## References
 <a id="1">[1]</a> 
-Lucas Dixon, John Li, Jeffrey Sorensen, Nithum Thain, and Lucy Vasserman. Measuring and mitigating unintended bias in text classification. In proceedings of the 2018AAAI/ACM Conference on AI, Ethics, and Society, pages 67–73, 2018
+Lucas Dixon, John Li, Jeffrey Sorensen, Nithum Thain, and Lucy Vasserman. Measuring and mitigating unintended bias in text classification. In proceedings of the 2018AAAI/ACM Conference on AI, Ethics, and Society, pages 67–73, 2018.
+
+<a id="3">[3]</a> 
+John M Giorgi, Osvald Nitski, Gary D Bader, and Bo Wang. Declutr: Deep contrastivelearning for unsupervised textual representations.arXiv preprint arXiv:2006.03659, 2020.
 
 <a id="4">[4]</a> 
-Jon Green, Jared Edgerton, Daniel Naftel, Kelsey Shoub, and Skyler J. Cranmer. Elusiveconsensus:  Polarization in elite communication on the COVID-19 pandemic. Science Advances, 6(28):eabc2717, July 2020
+Jon Green, Jared Edgerton, Daniel Naftel, Kelsey Shoub, and Skyler J. Cranmer. Elusiveconsensus:  Polarization in elite communication on the COVID-19 pandemic. Science Advances, 6(28):eabc2717, July 2020.
 
 <a id="6">[6]</a> 
 Negar Mokhberian, Andrés Abeliuk, Patrick Cummings, and Kristina Lerman. Moralframing and ideological bias of news.arXiv preprint arXiv:2009.12979, 2020.
 
 <a id="5">[5]</a> 
-Tomas Mikolov, Ilya Sutskever, Kai Chen, Greg S Corrado, and Jeff Dean. Distributed representations of words and phrases and their compositionality. In advances in neural information processing systems, pages 3111–3119, 2013
+Tomas Mikolov, Ilya Sutskever, Kai Chen, Greg S Corrado, and Jeff Dean. Distributed representations of words and phrases and their compositionality. In advances in neural information processing systems, pages 3111–3119, 2013.
 
 
 ## Bias detection using Deep Supervised Contrastive Learning (Goodfellas)
