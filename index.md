@@ -134,6 +134,20 @@ As our next step, we fit a binary classification model on these embeddings to se
 <b>Figure 4:</b> The visualization of the embeddings from \texttt{DeCLUTR} (left) and \texttt{FineBERT} (right) of test data in two dimension.
 </p>
 
+
+As our second baseline method, we fine tune BERT~\cite{mikolov2013distributed} by adding a classification layer and minimizing the the classification loss. We refer to this approach as \texttt{FineBERT}. A visualization of  the model \texttt{FineBERT} is given in figure~\ref{fig:FineBERT}.
+
+Similar to \texttt{DeCLUTR}, we visualize the embeddings given by \texttt{FineBERT} in two dimension shown in figure~\ref{fig:pca} (right). Similar to the case \texttt{DeCLUTR} we fit a logistic regression model on $75\%$ of the test set. The accuracy of the trained binary classifier on the remaining $25\%$ of the data is $55.78\%$. \texttt{FineBERT} is performing worse than \texttt{DeCLUTR} which shows the power of the self-supervised contrastive loss.
+
+So far we have implemented the baseline methods \texttt{DeCLUTR} and \texttt{FineBERT} and we can see that there is room for improvement. The out of sample accuracy of the downstream classification task is not good and we believe that our proposed model \texttt{GoodFellas} would improve upon that.
+
+<p align="center">
+  <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/FineTunedBERT.PNG" width="900" /> 
+</p>
+<p  align="center">
+<b>Figure 4:</b> The visualization of the embeddings from \texttt{DeCLUTR} (left) and \texttt{FineBERT} (right) of test data in two dimension.
+</p>
+
 ## References
 <a id="1">[1]</a> 
 Lucas Dixon, John Li, Jeffrey Sorensen, Nithum Thain, and Lucy Vasserman. Measuring and mitigating unintended bias in text classification. In proceedings of the 2018AAAI/ACM Conference on AI, Ethics, and Society, pages 67–73, 2018.
