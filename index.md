@@ -126,6 +126,13 @@ In the implementation of \texttt{DeCLUTR}, in the process of sampling the anchor
 We train the \texttt{DeCLUTR} model with the unsupervised contrastive loss on the training data. We then get the embedding of the test articles under the trained model. The visualization of the embeddings is given in figure~\ref{fig:pca} (left). The embedding space is $768$ dimensional. We applied Principal component analysis (PCA) to get the visualization. As we can see the embeddings are not well-separated from each other.
 As our next step, we fit a binary classification model on these embeddings to see how well it can separate the articles from opposite classes. To do so, we fit a logistic regression model on $75\%$ of the test set. The accuracy of the trained binary classifier on the remaining $25\%$ of the data is $85.45\%$.  
 
+<p float="center">
+  <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/declutr_pca.jpg" width="450" /> 
+  <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/fineBERT_pca.png" width="450" />
+</p>
+<p  align="center">
+<b>Figure 4:</b> The visualization of the embeddings from \texttt{DeCLUTR} (left) and \texttt{FineBERT} (right) of test data in two dimension.
+</p>
 
 ## References
 <a id="1">[1]</a> 
