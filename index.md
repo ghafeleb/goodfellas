@@ -82,14 +82,14 @@ where
 <b>Figure 2:</b> Overview of the supervised contrastive objective. In this figure, we show a simplified example where in each batch we sample 1 document $d^k$ per class $k$ and we sample 1 anchor span $e^k_i$ per document and 1 positive span $e^k_j$ per anchor. All the spans are fed through the same encoder $f$ and pooler $g$ to produce the corresponding embedding vectors $e^k_i$ and $e^k_j$. The model is trained to minimize the distance between each anchor $e^k_i$ and its corresponding positive $e^k_j$ and maximize the distance between anchor $e^k_i$ and all other spans from class $1-k$. \ali{I think we shouk}
 </p>
 <p float="center">
-  <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/data_head.PNG" width="450" /> 
+  <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/data_head.png" width="450" /> 
 </p>
 <b>Figure 3:</b> Overview of the dataset.
 </p>
 
 
 <p float="center">
-  <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/length_distribution.PNG" width="450" /> 
+  <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/length_distribution.png" width="450" /> 
 </p>
 <b>Figure 3:</b> Overview of the dataset.
 </p>
