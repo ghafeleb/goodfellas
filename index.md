@@ -2,11 +2,11 @@
 #### [[Project Website]](https://ghafeleb.github.io/goodfellas/)
 
 
-[Sina Aghaei](mailto:saghaei@usc.edu)<sup>1</sup>, [Zahra Abrishami](zabrisha@usc.edu)<sup>1</sup>, 
-[Ali Ghafelehbash](ghafeleb@usc.edu)<sup>1</sup>, [Bahareh Harandizadeh](harandiz@usc.edu)<sup>1</sup>, [Negar Mokhberian](nmokhber@usc.edu)<sup>1</sup>
+[Sina Aghaei](mailto:saghaei@usc.edu)<sup>1</sup>, [Zahra Abrishami](mailto:zabrisha@usc.edu)<sup>2</sup>, 
+[Ali Ghafelehbash](mailto:ghafeleb@usc.edu)<sup>1</sup>, [Bahareh Harandizadeh](mailto:harandiz@usc.edu)<sup>2</sup>, [Negar Mokhberian](mailto:nmokhber@usc.edu)<sup>2</sup>
 
-
-<sup>1</sup>CLVR Lab, University of Southern California 
+<sup>1</sup>Department of Industrial and Systems EngineeringUniversity of Southern CaliforniaLos Angeles, CA 9008
+<sup>2</sup>Department of Computer ScienceUniversity of Southern CaliforniaLos Angeles, CA 9008
 
 
 ## Abstract
