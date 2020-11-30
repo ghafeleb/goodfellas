@@ -2,7 +2,7 @@
 #### [[Project Website]](https://ghafeleb.github.io/goodfellas/)
 
 
-[Sina Aghaei](saghaei@usc.edu)<sup>1</sup>, [Zahra Abrishami](zabrisha@usc.edu)<sup>1</sup>, 
+[Sina Aghaei](mailto:saghaei@usc.edu)<sup>1</sup>, [Zahra Abrishami](zabrisha@usc.edu)<sup>1</sup>, 
 [Ali Ghafelehbash](ghafeleb@usc.edu)<sup>1</sup>, [Bahareh Harandizadeh](harandiz@usc.edu)<sup>1</sup>, [Negar Mokhberian](nmokhber@usc.edu)<sup>1</sup>
 
 
