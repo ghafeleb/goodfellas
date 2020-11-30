@@ -5,7 +5,7 @@
 [Sina Aghaei](mailto:saghaei@usc.edu)<sup>1</sup>, [Zahra Abrishami](mailto:zabrisha@usc.edu)<sup>2</sup>, 
 [Ali Ghafelehbash](mailto:ghafeleb@usc.edu)<sup>1</sup>, [Bahareh Harandizadeh](mailto:harandiz@usc.edu)<sup>2</sup>, [Negar Mokhberian](mailto:nmokhber@usc.edu)<sup>2</sup>
 
-<sup>1</sup>Department of Industrial and Systems EngineeringUniversity of Southern CaliforniaLos Angeles, CA 9008
+<sup>1</sup>Department of Industrial and Systems EngineeringUniversity of Southern CaliforniaLos Angeles, CA 9008<br/>
 <sup>2</sup>Department of Computer ScienceUniversity of Southern CaliforniaLos Angeles, CA 9008
 
 
@@ -27,7 +27,11 @@ A proxy for this goal could be a classifier which tries to classify news article
 </p>
 <!-- <img align="left" width="100" src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/bias.PNG"> -->
 
-
+<p align="left">
+  <img  width="250" src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/bias.PNG"> 
+<!--   <img align="center" width="250" src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/bias.PNG">  -->
+  <img align="right" width="250" src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/embedder.PNG">
+</p>
 
 
 
