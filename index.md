@@ -83,7 +83,8 @@ where
 </p>
 <p align="center">
   <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/data_head.png" width="900" /> 
-</p>
+</p align="center">
+<p  align="center">
 <b>Figure 3:</b> Overview of the dataset.
 </p>
 
@@ -91,6 +92,7 @@ where
 <p align="center">
   <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/length_distribution.png" width="450" /> 
 </p>
+<p  align="center">
 <b>Figure 3:</b> Overview of the dataset.
 </p>
 
