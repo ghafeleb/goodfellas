@@ -26,7 +26,7 @@ A proxy for this goal could be a classifier which tries to classify news article
   <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/bias.PNG" width="450" />
 </p>
 <p align="center">
-Fig. 2: The minimum dominating set of a graph
+<b>Figure 1:</b>An ideal latent space (left) where the articles from opposite classes are far from each other which helps to expose the political bias (right) and improves the performance of the classification task.
 </p>
 
 
