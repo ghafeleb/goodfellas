@@ -5,8 +5,8 @@
 [Sina Aghaei](mailto:saghaei@usc.edu)<sup>1</sup>, [Zahra Abrishami](mailto:zabrisha@usc.edu)<sup>2</sup>, 
 [Ali Ghafelehbash](mailto:ghafeleb@usc.edu)<sup>1</sup>, [Bahareh Harandizadeh](mailto:harandiz@usc.edu)<sup>2</sup>, [Negar Mokhberian](mailto:nmokhber@usc.edu)<sup>2</sup>
 
-<sup>1</sup>Department of Industrial and Systems EngineeringUniversity of Southern CaliforniaLos Angeles, CA 9008<br/>
-<sup>2</sup>Department of Computer ScienceUniversity of Southern CaliforniaLos Angeles, CA 9008
+<sup>1</sup>Department of Industrial and Systems Engineering, University of Southern California, Los Angeles, CA 9008<br/>
+<sup>2</sup>Department of Computer Science, University of Southern California, Los Angeles, CA 9008
 
 
 ## Abstract
@@ -44,9 +44,17 @@ To achieve such representation for news articles we propose a modification to th
 
 
 ## Problem Formulation
+We consider a setting where we have various documents (articles) from two different parties called \emph{liberal} (label being 0) and \emph{conservative} (label being 1). All the documents are about a similar topic, \newsa{Covid-19}.
 
+We sample a batch of $N$ documents from the \emph{liberal} party (class label being 0) and $N$ documents from the \emph{conservative} party (class label being 1). For each document from class $k \in \{0,1\}$ we sample $A$ anchor spans $s^k_i,~ i \in \{1,\dots,AN\}$ and per anchor we sample $P$ positive spans $s^k_{i+pAN},~ p \in \{1,\dots,P\}$ following the procedure introduced in~\cite{giorgi2020declutr}. \ali{Isn't it better to have $s_{i, j}^k$ such that $i \in \{1, 2, ..., N\}$ and $j \in \{1, 2, ..., A\}$?}
 
-
+Given an input span, $s^k_i$, a ''transformer-based language models'' encoder $f$, maps each token in the input span $s^k_i$ to a word embedding.
+    
+Similar to~\cite{giorgi2020declutr}, a pooler $g(.)$, maps the encoded anchor spans $f(s^k_i)$ to a fixed length embedding $g(f(s^k_i))$. \ali{Is it possible to impose fixed length of output to our embedder?}
+    
+We take the average of the positive spans per anchor as follows
+    $$e^k_{i+AN} = \frac{1}{P}\sum_{p=1}^{P}g(f(s^k_{i+pAN}))$$
+    
 
 
 
