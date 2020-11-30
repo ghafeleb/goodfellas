@@ -64,16 +64,16 @@ Zahra Abrishami[[2]](#2).
 
 ## References
 <a id="1">[1]</a> 
-Lucas Dixon, John Li, Jeffrey Sorensen, Nithum Thain, and Lucy Vasserman. Measur-ing and mitigating unintended bias in text classification.  InProceedings of the 2018AAAI/ACM Conference on AI, Ethics, and Society, pages 67–73, 2018
+Lucas Dixon, John Li, Jeffrey Sorensen, Nithum Thain, and Lucy Vasserman. Measuring and mitigating unintended bias in text classification. In proceedings of the 2018AAAI/ACM Conference on AI, Ethics, and Society, pages 67–73, 2018
 
 <a id="4">[4]</a> 
-Jon Green, Jared Edgerton, Daniel Naftel, Kelsey Shoub, and Skyler J. Cranmer. Elusiveconsensus:  Polarization in elite communication on the COVID-19 pandemic.ScienceAdvances, 6(28):eabc2717, July 2020
+Jon Green, Jared Edgerton, Daniel Naftel, Kelsey Shoub, and Skyler J. Cranmer. Elusiveconsensus:  Polarization in elite communication on the COVID-19 pandemic. Science Advances, 6(28):eabc2717, July 2020
 
 <a id="6">[6]</a> 
 Negar Mokhberian, Andrés Abeliuk, Patrick Cummings, and Kristina Lerman. Moralframing and ideological bias of news.arXiv preprint arXiv:2009.12979, 2020.
 
 <a id="5">[5]</a> 
-Tomas Mikolov, Ilya Sutskever, Kai Chen, Greg S Corrado, and Jeff Dean. Distributedrepresentations of words and phrases and their compositionality. InAdvances in neuralinformation processing systems, pages 3111–3119, 2013
+Tomas Mikolov, Ilya Sutskever, Kai Chen, Greg S Corrado, and Jeff Dean. Distributed representations of words and phrases and their compositionality. In advances in neural information processing systems, pages 3111–3119, 2013
 
 
 ## Bias detection using Deep Supervised Contrastive Learning (Goodfellas)
