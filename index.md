@@ -118,11 +118,13 @@ In the figure~\ref{fig:data_head} we show the first few lines of the dataset. We
 
 Another step that we do is topic modeling to make sure all the articles are about the same subject ''covid19''. We use Latent Dirichlet Allocation (LDA) for this step. The topics we found are as follows:
 
-- huffpost people new time home like 19 covid pandemic health help year just
-- trump president donald people house states white pandemic news state virus americans health going huffpost
-- minister china chinese cases italy wuhan government confirmed border reported countries virus prime authorities deaths
-- hanks rita kimmel jimmy wilson cordero aniston kloots fallon elvis song tom actor conan corden
-- newstex al views content et https advice www accuracy commentary authoritative guarantees distributors huffington conferring
+- Huffpost people new time home like 19 covid pandemic health help year just
+- Trump president donald people house states white pandemic news state virus americans health going huffpost
+- Minister china chinese cases italy wuhan government confirmed border reported countries virus prime authorities deaths
+- Hanks rita kimmel jimmy wilson cordero aniston kloots fallon elvis song tom actor conan corden
+- Newstex al views content et https advice www accuracy commentary authoritative guarantees distributors huffington conferring
+
+[AYLIEN’s Coronavirus news dataset](https://aylien.com/blog/coronavirus-news-dashboard)
 
 
 
