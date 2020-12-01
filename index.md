@@ -22,8 +22,8 @@ A proxy for this goal could be a classifier which tries to classify news article
 
 
 <p float="center">
-  <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/embedding.PNG" width="450" /> 
-  <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/bias.PNG" width="450" />
+  <a href='https://www.linkpicture.com/view.php?img=LPic5fc59238d28c21286633194'><img src='https://www.linkpicture.com/q/embedding.png' type='image'></a> 
+  <a href='https://www.linkpicture.com/view.php?img=LPic5fc59238d28c21286633194'><img src='https://www.linkpicture.com/q/embedding.png' type='image'></a>
 </p>
 <p align="center">
 <b>Figure 1:</b> An ideal latent space (left) where the articles from opposite classes are far from each other which helps to expose the political bias (right) and improves the performance of the classification task.
@@ -79,13 +79,13 @@ where
 \zahra{What is m? Does it refer to all documents from the different parties?}
 
 <p align="center">
-  <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/model.PNG" width="450" /> 
+  <a href='https://www.linkpicture.com/view.php?img=LPic5fc59238d28c21286633194'><img src='https://www.linkpicture.com/q/embedding.png' type='image'></a>
 </p>
 <p align="center">
 <b>Figure 2:</b> Overview of the supervised contrastive objective. In this figure, we show a simplified example where in each batch we sample 1 document $d^k$ per class $k$ and we sample 1 anchor span $e^k_i$ per document and 1 positive span $e^k_j$ per anchor. All the spans are fed through the same encoder $f$ and pooler $g$ to produce the corresponding embedding vectors $e^k_i$ and $e^k_j$. The model is trained to minimize the distance between each anchor $e^k_i$ and its corresponding positive $e^k_j$ and maximize the distance between anchor $e^k_i$ and all other spans from class $1-k$. \ali{I think we shouk}
 </p>
 <p align="center">
-  <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/data_head.png" width="900" /> 
+  <a href='https://www.linkpicture.com/view.php?img=LPic5fc59316dc5c02069018779'><img src='https://www.linkpicture.com/q/data_head.png' type='image'></a>
 </p align="center">
 <p  align="center">
 <b>Figure 3:</b> Overview of the dataset.
@@ -93,7 +93,7 @@ where
 
 
 <p align="center">
-  <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/length_distribution.png" width="450" /> 
+  <a href='https://www.linkpicture.com/view.php?img=LPic5fc59316dc5c02069018779'><img src='https://www.linkpicture.com/q/data_head.png' type='image'></a>
 </p>
 <p  align="center">
 <b>Figure 3:</b> Overview of the dataset.
