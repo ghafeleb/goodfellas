@@ -160,7 +160,7 @@ Similar to \texttt{DeCLUTR}, we visualize the embeddings given by \texttt{FineBE
 So far we have implemented the baseline methods \texttt{DeCLUTR} and \texttt{FineBERT} and we can see that there is room for improvement. The out of sample accuracy of the downstream classification task is not good and we believe that our proposed model \texttt{GoodFellas} would improve upon that.
 
 <p align="center">
-  <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/FineTunedBERT.PNG" width="900" /> 
+  <a href='https://www.linkpicture.com/view.php?img=LPic5fc5916db37a31261281140'><img src='https://www.linkpicture.com/q/FineTunedBERT.png' type='image'></a>
 </p>
 <p  align="center">
 <b>Figure 7</b>
