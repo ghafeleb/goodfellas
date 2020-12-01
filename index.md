@@ -81,7 +81,7 @@ where
 Loss function (3) enforces anchor <a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;e^k_i" target="_blank"><img src="https://latex.codecogs.com/png.latex?\small&space;e^k_i" title="\small e^k_i" /></a> to be as closes as possible to its corresponding positive span <a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;e^k_{i&plus;AN}" target="_blank"><img src="https://latex.codecogs.com/png.latex?\small&space;e^k_{i&plus;AN}" title="\small e^k_{i+AN}" /></a> (which is referred to as easy positive) and at the same time to be as far as possible from all spans <a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;e^{1-k}_m" target="_blank"><img src="https://latex.codecogs.com/png.latex?\small&space;e^{1-k}_m" title="\small e^{1-k}_m" /></a> from the opposite party, i.e., for any given anchor from class <a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;k" target="_blank"><img src="https://latex.codecogs.com/png.latex?\small&space;k" title="\small k" /></a>, the corresponding set of negative spans only include the spans from opposite class <a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;1-k" target="_blank"><img src="https://latex.codecogs.com/png.latex?\small&space;1-k" title="\small 1-k" /></a> (which are referred to as easy negative). Figure 2 visualizes a simplified overview of our model.
 
 <p align="center">
-  <a href='https://www.linkpicture.com/view.php?img=LPic5fc59607f139d808105913'><img src='https://www.linkpicture.com/q/model_1.png' type='image' width="450"></a>
+  <a href='https://www.linkpicture.com/view.php?img=LPic5fc59607f139d808105913'><img src='https://www.linkpicture.com/q/model_1.png' type='image' width="800"></a>
 <!--   <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/model.PNG" width="450" />  -->
 </p>
 <p align="center">
@@ -96,7 +96,7 @@ In the figure 3 we show the first few lines of the dataset. We assign Huffington
 
 </p>
 <p align="center">
-  <a href='https://www.linkpicture.com/view.php?img=LPic5fc59610575c3646721762'><img src='https://www.linkpicture.com/q/data_head_1.png' type='image' width="900"></a>
+  <a href='https://www.linkpicture.com/view.php?img=LPic5fc59610575c3646721762'><img src='https://www.linkpicture.com/q/data_head_1.png' type='image' width="800"></a>
 <!--   <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/data_head.png" width="900" />  -->
 </p align="center">
 <p  align="center">
@@ -123,25 +123,26 @@ It seems that the first topic is about ''covid19'', the second topic is about ''
 At the end we are left with 7226 articles from Breitbart (class 1) and 6300 articles from Huffington Post (class 0).
 
 ## Experiments
-In this section, as one of our baseline methods we train the **DeCLUTR** model introduced by [[3]](#3) on our covid19 data explained in section "Data", the overview of their model is given in figure 3. 
+In this section, as one of our baseline methods we train the <b>DeCLUTR</b> model introduced by [[3]](#3) on our covid19 data explained in section "Data", the overview of their model is given in figure 3. 
 
 
 <p align="center">
-  <a href='https://www.linkpicture.com/view.php?img=LPic5fc596bc0dbb01300739986'><img src='https://www.linkpicture.com/q/DeCUTR_1.png' type='image'></a>
+  <a href='https://www.linkpicture.com/view.php?img=LPic5fc596bc0dbb01300739986'><img src='https://www.linkpicture.com/q/DeCUTR_1.png' type='image' width="800"></a>
 <!--   <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/DeCUTR.PNG" width="900" />  -->
 </p align="center">
 <p  align="center">
 <b>Figure 4:</b> Overview of the self-supervised contrastive objective. For each document d in a minibatch of size <a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;N" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\small&space;N" title="\small N" /></a>, we sample A anchor spans per document and <a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;P" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\small&space;P" title="\small P" /></a> positive spans per anchor. For simplicity, we illustrate the case where <a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;A&space;=&space;P&space;=&space;1" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\small&space;A&space;=&space;P&space;=&space;1" title="\small A = P = 1" /></a> and denote the anchor-positive span pair as <a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;s_i" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\small&space;s_i" title="\small s_i" /></a>, <a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;s_j" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\small&space;s_j" title="\small s_j" /></a>. Both spans are fed through the same encoder <a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;f" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\small&space;f" title="\small f" /></a> and pooler <a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;g" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\small&space;g" title="\small g" /></a> to produce the corresponding embeddings <a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;e_i&space;=&space;g(f(s_i))" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\small&space;e_i&space;=&space;g(f(s_i))" title="\small e_i = g(f(s_i))" /></a>, <a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;e_j&space;=&space;g(f(s_j))" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\small&space;e_j&space;=&space;g(f(s_j))" title="\small e_j = g(f(s_j))" /></a>. The encoder and pooler are trained to minimize the distance between embeddings via a contrastive prediction task (where the other embeddings in a minibatch are treated as negatives, omitted here for simplicity).
 </p>
 
-In the implementation of **DeCLUTR**, in the process of sampling the anchor-positive spans, they randomly choose the length of each span, with the minimum length <a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;l_{\min}=32" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\small&space;l_{\min}=32" title="\small l_{\min}=32" /></a> and maximum length <a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;l_{\max}=512" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\small&space;l_{\max}=512" title="\small l_{\max}=512" /></a>. Furthermore they exclude all articles with less than (<a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;\text{num-anchor}*l_{\max}*2" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\small&space;\text{num-anchor}*l_{\max}*2" title="\small \text{num-anchor}*l_{\max}*2" /></a>) words, where num-anchor is the number of anchors sampled per article (For details of the sampling process please refer to the main text of [[3]](#3). According to the distriubtion of length of the articles in our dataset given in figure 4, in order to be able to use most of our data, we set the minimum length to <a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;\text{num-anchor}*l_{\max}*2" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\small&space;\text{num-anchor}*l_{\max}*2" title="\small \text{num-anchor}*l_{\max}*2" /></a> and maximum length to <a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;l_{\max}=100" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\small&space;l_{\max}=100" title="\small l_{\max}=100" /></a> and we sample one anchor per document, i.e., num-anchor=1. Having all this, articles with less than 200 words (1345 of them) would be put aside which we use them as our test set and use the remaining articles (12181 of them) as our training set.
-We train the **DeCLUTR** model with the unsupervised contrastive loss on the training data. We then get the embedding of the test articles under the trained model. The visualization of the embeddings is given in figure 6 (left). The embedding space is 768 dimensional. We applied Principal component analysis (PCA) to get the visualization. As we can see the embeddings are not well-separated from each other.
+In the implementation of <b>DeCLUTR</b>, in the process of sampling the anchor-positive spans, they randomly choose the length of each span, with the minimum length <a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;l_{\min}=32" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\small&space;l_{\min}=32" title="\small l_{\min}=32" /></a> and maximum length <a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;l_{\max}=512" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\small&space;l_{\max}=512" title="\small l_{\max}=512" /></a>. Furthermore they exclude all articles with less than (<a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;\text{num-anchor}*l_{\max}*2" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\small&space;\text{num-anchor}*l_{\max}*2" title="\small \text{num-anchor}*l_{\max}*2" /></a>) words, where num-anchor is the number of anchors sampled per article (For details of the sampling process please refer to the main text of [[3]](#3). According to the distriubtion of length of the articles in our dataset given in figure 4, in order to be able to use most of our data, we set the minimum length to <a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;\text{num-anchor}*l_{\max}*2" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\small&space;\text{num-anchor}*l_{\max}*2" title="\small \text{num-anchor}*l_{\max}*2" /></a> and maximum length to <a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;l_{\max}=100" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\small&space;l_{\max}=100" title="\small l_{\max}=100" /></a> and we sample one anchor per document, i.e., num-anchor=1. Having all this, articles with less than 200 words (1345 of them) would be put aside which we use them as our test set and use the remaining articles (12181 of them) as our training set.
+<br>
+We train the <b>DeCLUTR</b> model with the unsupervised contrastive loss on the training data. We then get the embedding of the test articles under the trained model. The visualization of the embeddings is given in figure 6 (left). The embedding space is 768 dimensional. We applied Principal component analysis (PCA) to get the visualization. As we can see the embeddings are not well-separated from each other.
 As our next step, we fit a binary classification model on these embeddings to see how well it can separate the articles from opposite classes. To do so, we fit a logistic regression model on 75% of the test set. The accuracy of the trained binary classifier on the remaining 25% of the data is 85.45%.  
 
 <p float="center">
-  <a href='https://www.linkpicture.com/view.php?img=LPic5fc59700f367b1173027377'><img src='https://www.linkpicture.com/q/declutr_pca.jpg' type='image' width="450"></a>
+  <a href='https://www.linkpicture.com/view.php?img=LPic5fc59700f367b1173027377'><img src='https://www.linkpicture.com/q/declutr_pca.jpg' type='image' width="350"></a>
 <!--   <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/declutr_pca.jpg" width="450" />  -->
-  <a href='https://www.linkpicture.com/view.php?img=LPic5fc59770e9fc8358745015'><img src='https://www.linkpicture.com/q/fineBERT_pca.png' type='image' width="450"></a>
+  <a href='https://www.linkpicture.com/view.php?img=LPic5fc59770e9fc8358745015'><img src='https://www.linkpicture.com/q/fineBERT_pca.png' type='image' width="350"></a>
 <!--   <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/fineBERT_pca.png" width="450" /> -->
 </p>
 <p  align="center">
@@ -149,18 +150,19 @@ As our next step, we fit a binary classification model on these embeddings to se
 </p>
 
 
-As our second baseline method, we fine tune BERT [[5]](#5) by adding a classification layer and minimizing the the classification loss. We refer to this approach as **FineBERT**. A visualization of  the model **FineBERT** is given in figure 7.
+As our second baseline method, we fine tune BERT [[5]](#5) by adding a classification layer and minimizing the the classification loss. We refer to this approach as <b>FineBERT</b>. A visualization of  the model <b>FineBERT</b> is given in figure 7.
 
-Similar to **DeCLUTR**, we visualize the embeddings given by **FineBERT** in two dimension shown in figure 6 (right). Similar to the case **DeCLUTR** we fit a logistic regression model on 75% of the test set. The accuracy of the trained binary classifier on the remaining 25% of the data is 55.78%. **FineBERT** is performing worse than **DeCLUTR** which shows the power of the self-supervised contrastive loss.
+Similar to <b>DeCLUTR</b>, we visualize the embeddings given by <b>FineBERT</b> in two dimension shown in figure 6 (right). Similar to the case <b>DeCLUTR</b> we fit a logistic regression model on 75% of the test set. The accuracy of the trained binary classifier on the remaining 25% of the data is 55.78%. <b>FineBERT</b> is performing worse than <b>DeCLUTR</b> which shows the power of the self-supervised contrastive loss.
 
-So far we have implemented the baseline methods **DeCLUTR** and **FineBERT** and we can see that there is room for improvement. The out of sample accuracy of the downstream classification task is not good and we believe that our proposed model **GoodFellas** would improve upon that.
+So far we have implemented the baseline methods <b>DeCLUTR</b> and <b>FineBERT</b> and we can see that there is room for improvement. The out of sample accuracy of the downstream classification task is not good and we believe that our proposed model <b>GoodFellas</b> would improve upon that.
 
 <p align="center">
-  <a href='https://www.linkpicture.com/view.php?img=LPic5fc5916db37a31261281140'><img src='https://www.linkpicture.com/q/FineTunedBERT.png' type='image' width="900" ></a>
+  <a href='https://www.linkpicture.com/view.php?img=LPic5fc5916db37a31261281140'><img src='https://www.linkpicture.com/q/FineTunedBERT.png' type='image' width="800" ></a>
 </p>
 <p  align="center">
 <b>Figure 7</b>
 </p>
+<br>
 
 ## References
 <a id="1">[1]</a> 
