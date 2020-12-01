@@ -22,8 +22,10 @@ A proxy for this goal could be a classifier which tries to classify news article
 
 
 <p float="center">
-  <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/embedding.PNG" width="450" /> 
-  <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/bias.PNG" width="450" />
+  <a href='https://www.linkpicture.com/view.php?img=LPic5fc593fd4f927164324048'><img src='https://www.linkpicture.com/q/embedding_1.png' type='image' width='450'></a>
+<!--   <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/embedding.PNG" width="450" />  -->
+  <a href='https://www.linkpicture.com/view.php?img=LPic5fc59442d9bef2013716327'><img src='https://www.linkpicture.com/q/bias_1.png' type='image' width='450'></a>
+<!--   <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/bias.PNG" width="450" /> -->
 </p>
 <p align="center">
 <b>Figure 1:</b> An ideal latent space (left) where the articles from opposite classes are far from each other which helps to expose the political bias (right) and improves the performance of the classification task.
@@ -79,25 +81,12 @@ where
 Loss function~\eqref{eq:loss_k} enforces anchor <a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;e^k_i" target="_blank"><img src="https://latex.codecogs.com/png.latex?\small&space;e^k_i" title="\small e^k_i" /></a> to be as closes as possible to its corresponding positive span <a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;e^k_{i&plus;AN}" target="_blank"><img src="https://latex.codecogs.com/png.latex?\small&space;e^k_{i&plus;AN}" title="\small e^k_{i+AN}" /></a> (which is referred to as easy positive) and at the same time to be as far as possible from all spans <a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;e^{1-k}_m" target="_blank"><img src="https://latex.codecogs.com/png.latex?\small&space;e^{1-k}_m" title="\small e^{1-k}_m" /></a> from the opposite party, i.e., for any given anchor from class <a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;k" target="_blank"><img src="https://latex.codecogs.com/png.latex?\small&space;k" title="\small k" /></a>, the corresponding set of negative spans only include the spans from opposite class <a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;1-k" target="_blank"><img src="https://latex.codecogs.com/png.latex?\small&space;1-k" title="\small 1-k" /></a> (which are referred to as easy negative). Figure~\ref{fig:model} visualizes a simplified overview of our model.
 
 <p align="center">
-  <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/model.PNG" width="450" /> 
+  <a href='https://www.linkpicture.com/view.php?img=LPic5fc59607f139d808105913'><img src='https://www.linkpicture.com/q/model_1.png' type='image' width="450"></a>
+<!--   <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/model.PNG" width="450" />  -->
 </p>
 <p align="center">
 <b>Figure 2:</b> Overview of the supervised contrastive objective. In this figure, we show a simplified example where in each batch we sample 1 document $d^k$ per class $k$ and we sample 1 anchor span $e^k_i$ per document and 1 positive span $e^k_j$ per anchor. All the spans are fed through the same encoder $f$ and pooler $g$ to produce the corresponding embedding vectors $e^k_i$ and $e^k_j$. The model is trained to minimize the distance between each anchor $e^k_i$ and its corresponding positive $e^k_j$ and maximize the distance between anchor $e^k_i$ and all other spans from class $1-k$. \ali{I think we shouk}
-</p>
-<p align="center">
-  <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/data_head.png" width="900" /> 
-</p align="center">
-<p  align="center">
-<b>Figure 3:</b> Overview of the dataset.
-</p>
 
-
-<p align="center">
-  <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/length_distribution.png" width="450" /> 
-</p>
-<p  align="center">
-<b>Figure 3:</b> Overview of the dataset.
-</p>
 
 
 ## Data
@@ -105,15 +94,18 @@ For our experiments we use [AYLIEN’s Coronavirus news dataset](https://aylien.
 
 In the figure~\ref{fig:data_head} we show the first few lines of the dataset. We assign Huffington's articles class $0$ and Breitbart's articles class $1$. Another important observation from the data is the distribution of the length (number of words) of the articles which is shown in figure~\ref{fig:data_head}. This is important to the step where we sample the anchor-positive pairs from the data. 
 
+</p>
 <p align="center">
-  <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/data_head.png" width="900" /> 
+  <a href='https://www.linkpicture.com/view.php?img=LPic5fc59610575c3646721762'><img src='https://www.linkpicture.com/q/data_head_1.png' type='image' width="900"></a>
+<!--   <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/data_head.png" width="900" />  -->
 </p align="center">
 <p  align="center">
 <b>Figure 3:</b> Overview of the dataset.
 </p>
 
 <p align="center">
-  <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/length_distribution.png" width="450" /> 
+  <a href='https://www.linkpicture.com/view.php?img=LPic5fc59612ed841794267532'><img src='https://www.linkpicture.com/q/length_distribution_1.png' type='image' width="450"></a>
+<!--   <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/length_distribution.png" width="450" />  -->
 </p>
 <p  align="center">
 <b>Figure 3:</b> Overview of the dataset.
@@ -135,7 +127,8 @@ In this section, as one of our baseline methods we train the \texttt{DeCLUTR} mo
 
 
 <p align="center">
-  <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/DeCUTR.PNG" width="900" /> 
+  <a href='https://www.linkpicture.com/view.php?img=LPic5fc596bc0dbb01300739986'><img src='https://www.linkpicture.com/q/DeCUTR_1.png' type='image'></a>
+<!--   <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/DeCUTR.PNG" width="900" />  -->
 </p align="center">
 <p  align="center">
 <b>Figure 4:</b> Overview of the self-supervised contrastive objective. For each document d in a minibatch of size N, we sample A anchor spans per document and P positive spans per anchor. For simplicity, we illustrate the case where $A = P = 1$ and denote the anchor-positive span pair as $s_i$, $s_j$. Both spans are fed through the same encoder $f$ and pooler $g$ to produce the corresponding embeddings $e_i = g(f(s_i))$, $e_j = g(f(s_j))$. The encoder and pooler are trained to minimize the distance between embeddings via a contrastive prediction task (where the other embeddings in a minibatch are treated as negatives, omitted here for simplicity).
@@ -146,8 +139,10 @@ We train the \texttt{DeCLUTR} model with the unsupervised contrastive loss on th
 As our next step, we fit a binary classification model on these embeddings to see how well it can separate the articles from opposite classes. To do so, we fit a logistic regression model on $75\%$ of the test set. The accuracy of the trained binary classifier on the remaining $25\%$ of the data is $85.45\%$.  
 
 <p float="center">
-  <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/declutr_pca.jpg" width="450" /> 
-  <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/fineBERT_pca.png" width="450" />
+  <a href='https://www.linkpicture.com/view.php?img=LPic5fc59700f367b1173027377'><img src='https://www.linkpicture.com/q/declutr_pca.jpg' type='image' width="450"></a>
+<!--   <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/declutr_pca.jpg" width="450" />  -->
+  <a href='https://www.linkpicture.com/view.php?img=LPic5fc59770e9fc8358745015'><img src='https://www.linkpicture.com/q/fineBERT_pca.png' type='image' width="450"></a>
+<!--   <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/fineBERT_pca.png" width="450" /> -->
 </p>
 <p  align="center">
 <b>Figure 4:</b> The visualization of the embeddings from \texttt{DeCLUTR} (left) and \texttt{FineBERT} (right) of test data in two dimension.
@@ -161,7 +156,7 @@ Similar to \texttt{DeCLUTR}, we visualize the embeddings given by \texttt{FineBE
 So far we have implemented the baseline methods \texttt{DeCLUTR} and \texttt{FineBERT} and we can see that there is room for improvement. The out of sample accuracy of the downstream classification task is not good and we believe that our proposed model \texttt{GoodFellas} would improve upon that.
 
 <p align="center">
-  <a href='https://www.linkpicture.com/view.php?img=LPic5fc5916db37a31261281140'><img src='https://www.linkpicture.com/q/FineTunedBERT.png' type='image'></a>
+  <a href='https://www.linkpicture.com/view.php?img=LPic5fc5916db37a31261281140'><img src='https://www.linkpicture.com/q/FineTunedBERT.png' type='image' width="900" ></a>
 </p>
 <p  align="center">
 <b>Figure 7</b>
