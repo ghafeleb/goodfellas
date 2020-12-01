@@ -168,17 +168,20 @@ So far we have implemented the baseline methods <b>DeCLUTR</b> and <b>FineBERT</
 <a id="1">[1]</a> 
 Lucas Dixon, John Li, Jeffrey Sorensen, Nithum Thain, and Lucy Vasserman. Measuring and mitigating unintended bias in text classification. In proceedings of the 2018AAAI/ACM Conference on AI, Ethics, and Society, pages 67–73, 2018.
 
+<a id="2">[2]</a> 
+Matt Gardner, Joel Grus, Mark Neumann, Oyvind Tafjord, Pradeep Dasigi, Nelson F.Liu, Matthew Peters, Michael Schmitz, and Luke S. Zettlemoyer.  Allennlp:  A deepsemantic natural language processing platform. 2017
+
 <a id="3">[3]</a> 
 John M Giorgi, Osvald Nitski, Gary D Bader, and Bo Wang. Declutr: Deep contrastivelearning for unsupervised textual representations.arXiv preprint arXiv:2006.03659, 2020.
 
 <a id="4">[4]</a> 
 Jon Green, Jared Edgerton, Daniel Naftel, Kelsey Shoub, and Skyler J. Cranmer. Elusiveconsensus:  Polarization in elite communication on the COVID-19 pandemic. Science Advances, 6(28):eabc2717, July 2020.
 
-<a id="6">[6]</a> 
-Negar Mokhberian, Andrés Abeliuk, Patrick Cummings, and Kristina Lerman. Moralframing and ideological bias of news.arXiv preprint arXiv:2009.12979, 2020.
-
 <a id="5">[5]</a> 
 Tomas Mikolov, Ilya Sutskever, Kai Chen, Greg S Corrado, and Jeff Dean. Distributed representations of words and phrases and their compositionality. In advances in neural information processing systems, pages 3111–3119, 2013.
+
+<a id="6">[6]</a> 
+Negar Mokhberian, Andrés Abeliuk, Patrick Cummings, and Kristina Lerman. Moralframing and ideological bias of news.arXiv preprint arXiv:2009.12979, 2020.
 
 <!-- 
 ## Bias detection using Deep Supervised Contrastive Learning (Goodfellas)
