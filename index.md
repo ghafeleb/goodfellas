@@ -20,17 +20,16 @@ In this work we want to understand how different are news articles on the same s
 %
 A proxy for this goal could be a classifier which tries to classify news articles depending on their political party. Existing approaches such as[[6]](#6) tackle this problem using a classifier on the space of the words embedding. The problem with this approach is that it is not end to end, i.e., the embedding are not trained with the purpose of getting a good classification result. As we can see in figure~\ref{fig:bias-embedding}(right), with general purpose word embedding models such as BERT[[5]](#5), classifying embedded articles might not be straightforward. Having a new representation such as the one shown in figure~\ref{fig:bias-embedding}(left) where it maximizes the distance between embedding from different classes could make the classification task much easier, as in the latent space, the bias is exposed.
 
+
 <p float="center">
-  <a href="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/embedding.PNG" target="_blank"><img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/embedding.PNG" title="\huge e^k_{i+AN} = \frac{1}{P}\sum_{p=1}^{P}g(f(s^k_{i+pAN}))" /></a>
-<!--   <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/embedding.PNG" width="450" />  -->
-  <a href="https://github.com/ghafeleb/goodfellas/blob/gh-pages/docs/resources/bias.PNG" target="_blank"><img src="https://github.com/ghafeleb/goodfellas/blob/gh-pages/docs/resources/bias.PNG" title="\huge e^k_{i+AN} = \frac{1}{P}\sum_{p=1}^{P}g(f(s^k_{i+pAN}))" /></a>
-<!--   <img src="https://github.com/ghafeleb/goodfellas/blob/gh-pages/docs/resources/bias.PNG" width="450" /> -->
+  <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/embedding.PNG" width="450" /> 
+  <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/bias.PNG" width="450" />
 </p>
 <p align="center">
 <b>Figure 1:</b> An ideal latent space (left) where the articles from opposite classes are far from each other which helps to expose the political bias (right) and improves the performance of the classification task.
 </p>
 
-![Alt desc](https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/embedding.PNG)
+
 
 
 To achieve such representation for news articles we propose a modification to the deep contrastive Learning model for unsupervised textual representation introduced in~\cite{giorgi2020declutr}. In~\cite{giorgi2020declutr}, they have a unsupervised contrastive loss which for any given textual segment (aka anchor span) it minimizes the distance between its embedding and the embeddings of other textual segments randomly sampled from nearby in the same document (aka positive spans). It also maximizes the distance between the given anchor from other spans which are not in its neighborhood (aka negative spans). In their model, the positive and negative spans are not chosen according to the label of the documents. We propose to alter their objective to a supervised contrastive loss so that the negative spans are sampled from articles with opposite label. The motivation is to maximize the distance between articles from different classes.
@@ -40,11 +39,11 @@ To achieve such representation for news articles we propose a modification to th
 ## Problem Formulation
 We consider a setting where we have various documents (articles) from two different parties called \emph{liberal} (label being 0) and \emph{conservative} (label being 1). All the documents are about a similar topic, \newsa{Covid-19}.
 
-We sample a batch of $N$ documents from the \emph{liberal} party (class label being 0) and $N$ documents from the \emph{conservative} party (class label being 1). For each document from class $k \in \{0,1\}$ we sample $A$ anchor spans $s^k_i,~ i \in \{1,\dots,AN\}$ and per anchor we sample $P$ positive spans $s^k_{i+pAN},~ p \in \{1,\dots,P\}$ following the procedure introduced in~\cite{giorgi2020declutr}. \ali{Isn't it better to have $s_{i, j}^k$ such that $i \in \{1, 2, ..., N\}$ and $j \in \{1, 2, ..., A\}$?}
+We sample a batch of <a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;N" target="_blank"><img src="https://latex.codecogs.com/png.latex?\small&space;N" title="\small N" /></a> documents from the \emph{liberal} party (class label being 0) and <a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;N" target="_blank"><img src="https://latex.codecogs.com/png.latex?\small&space;N" title="\small N" /></a> documents from the \emph{conservative} party (class label being 1). For each document from class <a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;k&space;\in&space;\{0,1\}" target="_blank"><img src="https://latex.codecogs.com/png.latex?\small&space;k&space;\in&space;\{0,1\}" title="\small k \in \{0,1\}" /></a> we sample <a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;A" target="_blank"><img src="https://latex.codecogs.com/png.latex?\small&space;A" title="\small A" /></a> anchor spans <a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;s^k_i,~&space;i&space;\in&space;\{1,\dots,AN\}" target="_blank"><img src="https://latex.codecogs.com/png.latex?\small&space;s^k_i,~&space;i&space;\in&space;\{1,\dots,AN\}" title="\small s^k_i,~ i \in \{1,\dots,AN\}" /></a> and per anchor we sample $P$ positive spans <a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;s^k_{i&plus;pAN},~&space;p&space;\in&space;\{1,\dots,P\}" target="_blank"><img src="https://latex.codecogs.com/png.latex?\small&space;s^k_{i&plus;pAN},~&space;p&space;\in&space;\{1,\dots,P\}" title="\small s^k_{i+pAN},~ p \in \{1,\dots,P\}" /></a> following the procedure introduced in~\cite{giorgi2020declutr}.
 
-Given an input span, $s^k_i$, a ''transformer-based language models'' encoder $f$, maps each token in the input span $s^k_i$ to a word embedding.
+Given an input span, <a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;s^k_i" target="_blank"><img src="https://latex.codecogs.com/png.latex?\small&space;s^k_i" title="\small s^k_i" /></a>, a ''transformer-based language models'' encoder <a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;f" target="_blank"><img src="https://latex.codecogs.com/png.latex?\small&space;f" title="\small f" /></a>, maps each token in the input span <a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;s^k_i" target="_blank"><img src="https://latex.codecogs.com/png.latex?\small&space;s^k_i" title="\small s^k_i" /></a> to a word embedding.
     
-Similar to~\cite{giorgi2020declutr}, a pooler $g(.)$, maps the encoded anchor spans $f(s^k_i)$ to a fixed length embedding <a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;g(f(s^k_i))" target="_blank"><img src="https://latex.codecogs.com/png.latex?\small&space;g(f(s^k_i))" title="\small g(f(s^k_i))" /></a>. 
+Similar to~\cite{giorgi2020declutr}, a pooler <a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;g(.)" target="_blank"><img src="https://latex.codecogs.com/png.latex?\small&space;g(.)" title="\small g(.)" /></a>, maps the encoded anchor spans <a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;f(s^k_i)" target="_blank"><img src="https://latex.codecogs.com/png.latex? to a fixed length embedding <a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;g(f(s^k_i))" target="_blank"><img src="https://latex.codecogs.com/png.latex?\small&space;g(f(s^k_i))" title="\small g(f(s^k_i))" /></a>. 
     
 
 We take the average of the positive spans per anchor as follows:
@@ -54,12 +53,12 @@ We take the average of the positive spans per anchor as follows:
 </p align="center">
 
 
-    
+<!--    
 <p align="center">
   <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/AvgPosSpan.PNG" width="450" /> 
 </p>
-
-Now we have $2(AN)$ datapoints per party and in total $4(AN)$ datapoints per batch. 
+ -->
+Now we have <a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;2(AN)" target="_blank"><img src="https://latex.codecogs.com/png.latex?\small&space;2(AN)" title="\small 2(AN)" /></a> datapoints per party and in total <a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;4(AN)" target="_blank"><img src="https://latex.codecogs.com/png.latex?\small&space;4(AN)" title="\small 4(AN)" /></a> datapoints per batch. 
 
 <p align="center">
   <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/Loss1.PNG" width="450" /> 
