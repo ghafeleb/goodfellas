@@ -134,6 +134,39 @@ At the end we are left with 7226 articles from Breitbart (class $1$) and 6300 ar
 In this section, as one of our baseline methods we train the \texttt{DeCLUTR} model introduced by[[3]](#3) on our covid19 data explained in \S\ref{sec:data}, the overview of their model is given in figure 3. 
 
 
+<p align="center">
+  <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/DeCUTR.PNG" width="900" /> 
+</p align="center">
+<p  align="center">
+<b>Figure 4:</b> Overview of the self-supervised contrastive objective. For each document d in a minibatch of size N, we sample A anchor spans per document and P positive spans per anchor. For simplicity, we illustrate the case where $A = P = 1$ and denote the anchor-positive span pair as $s_i$, $s_j$. Both spans are fed through the same encoder $f$ and pooler $g$ to produce the corresponding embeddings $e_i = g(f(s_i))$, $e_j = g(f(s_j))$. The encoder and pooler are trained to minimize the distance between embeddings via a contrastive prediction task (where the other embeddings in a minibatch are treated as negatives, omitted here for simplicity).
+</p>
+
+In the implementation of \texttt{DeCLUTR}, in the process of sampling the anchor-positive spans, they randomly choose the length of each span, with the minimum length $l_{\min}=32$ and maximum length $l_{\max}=512$. Furthermore they exclude all articles with less than ($\text{num-anchor}*l_{\max}*2$) words, where num-anchor is the number of anchors sampled per article (For details of the sampling process please refer to the main text of~\cite{giorgi2020declutr}). According to the distriubtion of length of the articles in our dataset given in figure~\ref{fig:length_dist}, in order to be able to use most of our data, we set the minimum length to $l_{\min}=20$ and maximum length to $l_{\max}=100$ and we sample one anchor per document, i.e., $\text{num-anchor}=1$. Having all this, articles with less than $200$ words (1345 of them) would be put aside which we use them as our test set and use the remaining articles (12181 of them) as our training set.
+We train the \texttt{DeCLUTR} model with the unsupervised contrastive loss on the training data. We then get the embedding of the test articles under the trained model. The visualization of the embeddings is given in figure~\ref{fig:pca} (left). The embedding space is $768$ dimensional. We applied Principal component analysis (PCA) to get the visualization. As we can see the embeddings are not well-separated from each other.
+As our next step, we fit a binary classification model on these embeddings to see how well it can separate the articles from opposite classes. To do so, we fit a logistic regression model on $75\%$ of the test set. The accuracy of the trained binary classifier on the remaining $25\%$ of the data is $85.45\%$.  
+
+<p float="center">
+  <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/declutr_pca.jpg" width="450" /> 
+  <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/fineBERT_pca.png" width="450" />
+</p>
+<p  align="center">
+<b>Figure 4:</b> The visualization of the embeddings from \texttt{DeCLUTR} (left) and \texttt{FineBERT} (right) of test data in two dimension.
+</p>
+
+
+As our second baseline method, we fine tune BERT~\cite{mikolov2013distributed} by adding a classification layer and minimizing the the classification loss. We refer to this approach as \texttt{FineBERT}. A visualization of  the model \texttt{FineBERT} is given in figure~\ref{fig:FineBERT}.
+
+Similar to \texttt{DeCLUTR}, we visualize the embeddings given by \texttt{FineBERT} in two dimension shown in figure~\ref{fig:pca} (right). Similar to the case \texttt{DeCLUTR} we fit a logistic regression model on $75\%$ of the test set. The accuracy of the trained binary classifier on the remaining $25\%$ of the data is $55.78\%$. \texttt{FineBERT} is performing worse than \texttt{DeCLUTR} which shows the power of the self-supervised contrastive loss.
+
+So far we have implemented the baseline methods \texttt{DeCLUTR} and \texttt{FineBERT} and we can see that there is room for improvement. The out of sample accuracy of the downstream classification task is not good and we believe that our proposed model \texttt{GoodFellas} would improve upon that.
+
+<p align="center">
+  <a href='https://www.linkpicture.com/view.php?img=LPic5fc5916db37a31261281140'><img src='https://www.linkpicture.com/q/FineTunedBERT.png' type='image'></a>
+</p>
+<p  align="center">
+<b>Figure 7</b>
+</p>
+
 ## References
 <a id="1">[1]</a> 
 Lucas Dixon, John Li, Jeffrey Sorensen, Nithum Thain, and Lucy Vasserman. Measuring and mitigating unintended bias in text classification. In proceedings of the 2018AAAI/ACM Conference on AI, Ethics, and Society, pages 67–73, 2018.
