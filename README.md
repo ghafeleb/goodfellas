@@ -22,9 +22,9 @@ A proxy for this goal could be a classifier which tries to classify news article
 
 
 <p float="center">
-  <a href='https://www.linkpicture.com/view.php?img=LPic5fc593fd4f927164324048'><img src='https://www.linkpicture.com/q/embedding_1.png' type='image' width='300'></a>
+  <a href='https://www.linkpicture.com/view.php?img=LPic5fc593fd4f927164324048'><img src='https://www.linkpicture.com/q/embedding_1.png' type='image' width='250'></a>
 <!--   <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/embedding.PNG" width="450" />  -->
-  <a href='https://www.linkpicture.com/view.php?img=LPic5fc59442d9bef2013716327'><img src='https://www.linkpicture.com/q/bias_1.png' type='image' width='300'></a>
+  <a href='https://www.linkpicture.com/view.php?img=LPic5fc59442d9bef2013716327'><img src='https://www.linkpicture.com/q/bias_1.png' type='image' width='250'></a>
 <!--   <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/bias.PNG" width="450" /> -->
 </p>
 <p align="center">
@@ -51,7 +51,7 @@ Similar to [[3]](#3), a pooler <a href="https://www.codecogs.com/eqnedit.php?lat
 We take the average of the positive spans per anchor as follows:
 
 <p align="center">
-  <a href="https://www.codecogs.com/eqnedit.php?latex=\LARGE&space;e^k_{i&plus;AN}&space;=&space;\frac{1}{P}\sum_{p=1}^{P}g(f(s^k_{i&plus;pAN})" target="_blank"><img src="https://latex.codecogs.com/png.latex?\LARGE&space;e^k_{i&plus;AN}&space;=&space;\frac{1}{P}\sum_{p=1}^{P}g(f(s^k_{i&plus;pAN})" title="\LARGE e^k_{i+AN} = \frac{1}{P}\sum_{p=1}^{P}g(f(s^k_{i+pAN})" /></a>
+  <a href="https://www.codecogs.com/eqnedit.php?latex=\LARGE&space;e^k_{i&plus;AN}&space;=&space;\frac{1}{P}\sum_{p=1}^{P}g(f(s^k_{i&plus;pAN})" target="_blank"><img src="https://latex.codecogs.com/png.latex?\LARGE&space;e^k_{i&plus;AN}&space;=&space;\frac{1}{P}\sum_{p=1}^{P}g(f(s^k_{i&plus;pAN})" title="\LARGE e^k_{i+AN} = \frac{1}{P}\sum_{p=1}^{P}g(f(s^k_{i+pAN})" width="200" /></a>
 </p>
 
 
@@ -63,30 +63,30 @@ We take the average of the positive spans per anchor as follows:
 Now we have <a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;2(AN)" target="_blank"><img src="https://latex.codecogs.com/png.latex?\small&space;2(AN)" title="\small 2(AN)" /></a> datapoints per party and in total <a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;4(AN)" target="_blank"><img src="https://latex.codecogs.com/png.latex?\small&space;4(AN)" title="\small 4(AN)" /></a> datapoints per batch. 
 
 <p align="center">
-  <a href="https://www.codecogs.com/eqnedit.php?latex=\LARGE&space;\mathcal&space;L_{\text{contrastive}}&space;=&space;\sum_{k&space;\in&space;\{0,1\}}\mathcal&space;L^k" target="_blank"><img src="https://latex.codecogs.com/png.latex?\LARGE&space;\mathcal&space;L_{\text{contrastive}}&space;=&space;\sum_{k&space;\in&space;\{0,1\}}\mathcal&space;L^k" title="\LARGE \mathcal L_{\text{contrastive}} = \sum_{k \in \{0,1\}}\mathcal L^k" /></a>
+  <a href="https://www.codecogs.com/eqnedit.php?latex=\LARGE&space;\mathcal&space;L_{\text{contrastive}}&space;=&space;\sum_{k&space;\in&space;\{0,1\}}\mathcal&space;L^k" target="_blank"><img src="https://latex.codecogs.com/png.latex?\LARGE&space;\mathcal&space;L_{\text{contrastive}}&space;=&space;\sum_{k&space;\in&space;\{0,1\}}\mathcal&space;L^k" title="\LARGE \mathcal L_{\text{contrastive}} = \sum_{k \in \{0,1\}}\mathcal L^k" width="200" /></a>
 </p>
 
 <br>
 <p align="center">
-  <a href="https://www.codecogs.com/eqnedit.php?latex=\LARGE&space;\mathcal&space;L^k&space;=&space;\sum_{i=1}^{AN}l^k(i,i&plus;AN)&space;&plus;&space;l^k(i&plus;AN,i)" target="_blank"><img src="https://latex.codecogs.com/png.latex?\LARGE&space;\mathcal&space;L^k&space;=&space;\sum_{i=1}^{AN}l^k(i,i&plus;AN)&space;&plus;&space;l^k(i&plus;AN,i)" title="\LARGE \mathcal L^k = \sum_{i=1}^{AN}l^k(i,i+AN) + l^k(i+AN,i)" /></a>
+  <a href="https://www.codecogs.com/eqnedit.php?latex=\LARGE&space;\mathcal&space;L^k&space;=&space;\sum_{i=1}^{AN}l^k(i,i&plus;AN)&space;&plus;&space;l^k(i&plus;AN,i)" target="_blank"><img src="https://latex.codecogs.com/png.latex?\LARGE&space;\mathcal&space;L^k&space;=&space;\sum_{i=1}^{AN}l^k(i,i&plus;AN)&space;&plus;&space;l^k(i&plus;AN,i)" title="\LARGE \mathcal L^k = \sum_{i=1}^{AN}l^k(i,i+AN) + l^k(i+AN,i)" width="200" /></a>
 </p>
 
 where
 
 <p align="center">
-  <a href="https://www.codecogs.com/eqnedit.php?latex=\LARGE&space;l^k(i,j)&space;=&space;-\log&space;\frac{exp(sim(e^k_i,e^k_j)/\tau)}{\sum_{m=1}^{2AN}exp(sim(e^k_i,e^{1-k}_m)/\tau)}" target="_blank"><img src="https://latex.codecogs.com/png.latex?\LARGE&space;l^k(i,j)&space;=&space;-\log&space;\frac{exp(sim(e^k_i,e^k_j)/\tau)}{\sum_{m=1}^{2AN}exp(sim(e^k_i,e^{1-k}_m)/\tau)}" title="\LARGE l^k(i,j) = -\log \frac{exp(sim(e^k_i,e^k_j)/\tau)}{\sum_{m=1}^{2AN}exp(sim(e^k_i,e^{1-k}_m)/\tau)}" /></a>
+  <a href="https://www.codecogs.com/eqnedit.php?latex=\LARGE&space;l^k(i,j)&space;=&space;-\log&space;\frac{exp(sim(e^k_i,e^k_j)/\tau)}{\sum_{m=1}^{2AN}exp(sim(e^k_i,e^{1-k}_m)/\tau)}" target="_blank"><img src="https://latex.codecogs.com/png.latex?\LARGE&space;l^k(i,j)&space;=&space;-\log&space;\frac{exp(sim(e^k_i,e^k_j)/\tau)}{\sum_{m=1}^{2AN}exp(sim(e^k_i,e^{1-k}_m)/\tau)}" title="\LARGE l^k(i,j) = -\log \frac{exp(sim(e^k_i,e^k_j)/\tau)}{\sum_{m=1}^{2AN}exp(sim(e^k_i,e^{1-k}_m)/\tau)}" width="200" /></a>
 </p>
 
 
 Loss function (3) enforces anchor <a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;e^k_i" target="_blank"><img src="https://latex.codecogs.com/png.latex?\small&space;e^k_i" title="\small e^k_i" /></a> to be as closes as possible to its corresponding positive span <a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;e^k_{i&plus;AN}" target="_blank"><img src="https://latex.codecogs.com/png.latex?\small&space;e^k_{i&plus;AN}" title="\small e^k_{i+AN}" /></a> (which is referred to as easy positive) and at the same time to be as far as possible from all spans <a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;e^{1-k}_m" target="_blank"><img src="https://latex.codecogs.com/png.latex?\small&space;e^{1-k}_m" title="\small e^{1-k}_m" /></a> from the opposite party, i.e., for any given anchor from class <a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;k" target="_blank"><img src="https://latex.codecogs.com/png.latex?\small&space;k" title="\small k" /></a>, the corresponding set of negative spans only include the spans from opposite class <a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;1-k" target="_blank"><img src="https://latex.codecogs.com/png.latex?\small&space;1-k" title="\small 1-k" /></a> (which are referred to as easy negative). Figure 2 visualizes a simplified overview of our model.
 
 <p align="center">
-  <a href='https://www.linkpicture.com/view.php?img=LPic5fc59607f139d808105913'><img src='https://www.linkpicture.com/q/model_1.png' type='image' width="800"></a>
+  <a href='https://www.linkpicture.com/view.php?img=LPic5fc59607f139d808105913'><img src='https://www.linkpicture.com/q/model_1.png' type='image' width="600"></a>
 <!--   <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/model.PNG" width="450" />  -->
 </p>
 <p align="center">
 <b>Figure 2:</b> Overview of the supervised contrastive objective. In this figure, we show a simplified example where in each batch we sample 1 document <a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;d^k" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\small&space;d^k" title="\small d^k" /></a> per class <a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;k" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\small&space;k" title="\small k" /></a> and we sample 1 anchor span <a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;e^k_i" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\small&space;e^k_i" title="\small e^k_i" /></a> per document and 1 positive span <a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;e^k_j" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\small&space;e^k_j" title="\small e^k_j" /></a> per anchor. All the spans are fed through the same encoder <a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;f" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\small&space;f" title="\small f" /></a> and pooler <a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;g" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\small&space;g" title="\small g" /></a> to produce the corresponding embedding vectors <a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;e^k_i" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\small&space;e^k_i" title="\small e^k_i" /></a> and <a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;e^k_j" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\small&space;e^k_j" title="\small e^k_j" /></a>. The model is trained to minimize the distance between each anchor <a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;e^k_i" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\small&space;e^k_i" title="\small e^k_i" /></a> and its corresponding positive <a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;e^k_j" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\small&space;e^k_j" title="\small e^k_j" /></a> and maximize the distance between anchor <a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;e^k_i" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\small&space;e^k_i" title="\small e^k_i" /></a> and all other spans from class <a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;1-k" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\small&space;1-k" title="\small 1-k" /></a>. 
-
+</p>
 
 
 ## Data
@@ -94,17 +94,17 @@ For our experiments we use [AYLIEN’s Coronavirus news dataset](https://aylien.
 
 In the figure 3 we show the first few lines of the dataset. We assign Huffington's articles class 0 and Breitbart's articles class 1. Another important observation from the data is the distribution of the length (number of words) of the articles which is shown in figure 3. This is important to the step where we sample the anchor-positive pairs from the data. 
 
-</p>
+
 <p align="center">
-  <a href='https://www.linkpicture.com/view.php?img=LPic5fc59610575c3646721762'><img src='https://www.linkpicture.com/q/data_head_1.png' type='image' width="800"></a>
+  <a href='https://www.linkpicture.com/view.php?img=LPic5fc59610575c3646721762'><img src='https://www.linkpicture.com/q/data_head_1.png' type='image' width="600"></a>
 <!--   <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/data_head.png" width="900" />  -->
-</p align="center">
+</p>
 <p  align="center">
 <b>Figure 3:</b> Overview of the dataset.
 </p>
 
 <p align="center">
-  <a href='https://www.linkpicture.com/view.php?img=LPic5fc59612ed841794267532'><img src='https://www.linkpicture.com/q/length_distribution_1.png' type='image' width="450"></a>
+  <a href='https://www.linkpicture.com/view.php?img=LPic5fc59612ed841794267532'><img src='https://www.linkpicture.com/q/length_distribution_1.png' type='image' width="250"></a>
 <!--   <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/length_distribution.png" width="450" />  -->
 </p>
 <p  align="center">
@@ -127,9 +127,9 @@ In this section, as one of our baseline methods we train the <b>DeCLUTR</b> mode
 
 
 <p align="center">
-  <a href='https://www.linkpicture.com/view.php?img=LPic5fc596bc0dbb01300739986'><img src='https://www.linkpicture.com/q/DeCUTR_1.png' type='image' width="800"></a>
+  <a href='https://www.linkpicture.com/view.php?img=LPic5fc596bc0dbb01300739986'><img src='https://www.linkpicture.com/q/DeCUTR_1.png' type='image' width="600"></a>
 <!--   <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/DeCUTR.PNG" width="900" />  -->
-</p align="center">
+</p>
 <p  align="center">
 <b>Figure 4:</b> Overview of the self-supervised contrastive objective. For each document d in a minibatch of size <a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;N" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\small&space;N" title="\small N" /></a>, we sample A anchor spans per document and <a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;P" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\small&space;P" title="\small P" /></a> positive spans per anchor. For simplicity, we illustrate the case where <a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;A&space;=&space;P&space;=&space;1" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\small&space;A&space;=&space;P&space;=&space;1" title="\small A = P = 1" /></a> and denote the anchor-positive span pair as <a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;s_i" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\small&space;s_i" title="\small s_i" /></a>, <a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;s_j" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\small&space;s_j" title="\small s_j" /></a>. Both spans are fed through the same encoder <a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;f" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\small&space;f" title="\small f" /></a> and pooler <a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;g" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\small&space;g" title="\small g" /></a> to produce the corresponding embeddings <a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;e_i&space;=&space;g(f(s_i))" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\small&space;e_i&space;=&space;g(f(s_i))" title="\small e_i = g(f(s_i))" /></a>, <a href="https://www.codecogs.com/eqnedit.php?latex=\small&space;e_j&space;=&space;g(f(s_j))" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\small&space;e_j&space;=&space;g(f(s_j))" title="\small e_j = g(f(s_j))" /></a>. The encoder and pooler are trained to minimize the distance between embeddings via a contrastive prediction task (where the other embeddings in a minibatch are treated as negatives, omitted here for simplicity).
 </p>
@@ -140,13 +140,13 @@ We train the <b>DeCLUTR</b> model with the unsupervised contrastive loss on the 
 As our next step, we fit a binary classification model on these embeddings to see how well it can separate the articles from opposite classes. To do so, we fit a logistic regression model on 75% of the test set. The accuracy of the trained binary classifier on the remaining 25% of the data is 85.45%.  
 
 <p float="center">
-  <a href='https://www.linkpicture.com/view.php?img=LPic5fc59700f367b1173027377'><img src='https://www.linkpicture.com/q/declutr_pca.jpg' type='image' width="350"></a>
+  <a href='https://www.linkpicture.com/view.php?img=LPic5fc59700f367b1173027377'><img src='https://www.linkpicture.com/q/declutr_pca.jpg' type='image' width="250"></a>
 <!--   <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/declutr_pca.jpg" width="450" />  -->
-  <a href='https://www.linkpicture.com/view.php?img=LPic5fc59770e9fc8358745015'><img src='https://www.linkpicture.com/q/fineBERT_pca.png' type='image' width="350"></a>
+  <a href='https://www.linkpicture.com/view.php?img=LPic5fc59770e9fc8358745015'><img src='https://www.linkpicture.com/q/fineBERT_pca.png' type='image' width="250"></a>
 <!--   <img src="https://github.com/ghafeleb/goodfellas/blob/main/docs/resources/fineBERT_pca.png" width="450" /> -->
 </p>
 <p  align="center">
-<b>Figure 4:</b> The visualization of the embeddings from *DeCLUTR** (left) and **FineBERT* (right) of test data in two dimension.
+  <b>Figure 4:</b> The visualization of the embeddings from <b>DeCLUTR</b> (left) and <b>FineBERT</b> (right) of test data in two dimension.
 </p>
 
 
@@ -157,7 +157,7 @@ Similar to <b>DeCLUTR</b>, we visualize the embeddings given by <b>FineBERT</b> 
 So far we have implemented the baseline methods <b>DeCLUTR</b> and <b>FineBERT</b> and we can see that there is room for improvement. The out of sample accuracy of the downstream classification task is not good and we believe that our proposed model <b>GoodFellas</b> would improve upon that.
 
 <p align="center">
-  <a href='https://www.linkpicture.com/view.php?img=LPic5fc5916db37a31261281140'><img src='https://www.linkpicture.com/q/FineTunedBERT.png' type='image' width="800" ></a>
+  <a href='https://www.linkpicture.com/view.php?img=LPic5fc5916db37a31261281140'><img src='https://www.linkpicture.com/q/FineTunedBERT.png' type='image' width="600" ></a>
 </p>
 <p  align="center">
 <b>Figure 7</b>
@@ -168,17 +168,20 @@ So far we have implemented the baseline methods <b>DeCLUTR</b> and <b>FineBERT</
 <a id="1">[1]</a> 
 Lucas Dixon, John Li, Jeffrey Sorensen, Nithum Thain, and Lucy Vasserman. Measuring and mitigating unintended bias in text classification. In proceedings of the 2018AAAI/ACM Conference on AI, Ethics, and Society, pages 67–73, 2018.
 
+<a id="2">[2]</a> 
+Matt Gardner, Joel Grus, Mark Neumann, Oyvind Tafjord, Pradeep Dasigi, Nelson F.Liu, Matthew Peters, Michael Schmitz, and Luke S. Zettlemoyer.  Allennlp:  A deepsemantic natural language processing platform. 2017
+
 <a id="3">[3]</a> 
 John M Giorgi, Osvald Nitski, Gary D Bader, and Bo Wang. Declutr: Deep contrastivelearning for unsupervised textual representations.arXiv preprint arXiv:2006.03659, 2020.
 
 <a id="4">[4]</a> 
 Jon Green, Jared Edgerton, Daniel Naftel, Kelsey Shoub, and Skyler J. Cranmer. Elusiveconsensus:  Polarization in elite communication on the COVID-19 pandemic. Science Advances, 6(28):eabc2717, July 2020.
 
-<a id="6">[6]</a> 
-Negar Mokhberian, Andrés Abeliuk, Patrick Cummings, and Kristina Lerman. Moralframing and ideological bias of news.arXiv preprint arXiv:2009.12979, 2020.
-
 <a id="5">[5]</a> 
 Tomas Mikolov, Ilya Sutskever, Kai Chen, Greg S Corrado, and Jeff Dean. Distributed representations of words and phrases and their compositionality. In advances in neural information processing systems, pages 3111–3119, 2013.
+
+<a id="6">[6]</a> 
+Negar Mokhberian, Andrés Abeliuk, Patrick Cummings, and Kristina Lerman. Moralframing and ideological bias of news.arXiv preprint arXiv:2009.12979, 2020.
 
 <!-- 
 ## Bias detection using Deep Supervised Contrastive Learning (Goodfellas)
